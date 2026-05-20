@@ -1,0 +1,7 @@
+/* nav.css - stilizare meniu/navigare */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
