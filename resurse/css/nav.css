@@ -1,0 +1,269 @@
+/* ============================================================
+   nav.css — Stilizare navigare principală
+   Etapa 2 individual: burger menu, dropdown, responsive
+   Etapa 3 bonus: animație hamburger cu keyframes succesive
+   Autor: Chiriac Ciprian-Mihai | Grupa 211, FMI UniBuc
+   ============================================================ */
+
+/* ===== Header ===== */
+header {
+    background: rgba(20, 24, 41, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+/* hgroup ascuns vizual — prezent semantic pentru validare */
+.site-hgroup {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ===== Main Navigation ===== */
+.main-navigation {
+    height: var(--menu-height);
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== Logo ===== */
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--menu-text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover    { color: var(--menu-hover); }
+.nav-logo i        { margin-right: 0.5rem; color: var(--menu-hover); }
+
+/* ===== Burger menu (3 span-uri CSS) ===== */
+/* Bonus Etapa 3: hamburger din 3 divuri/span-uri, fără imagini */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    position: relative;
+}
+
+.burger-menu span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--menu-text);
+    border-radius: 2px;
+    transform-origin: center;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    /* Bonus: animații succesive cu delay diferit — generate cu delay manual */
+    animation: burgerAppear 0.6s ease-out forwards;
+}
+
+.burger-menu span:nth-child(1) { top: 0;    animation-delay: 0ms;   }
+.burger-menu span:nth-child(2) { top: 50%;  transform: translateY(-50%); animation-delay: 150ms; }
+.burger-menu span:nth-child(3) { bottom: 0; animation-delay: 300ms; }
+
+/* Stare activă burger */
+.burger-menu.active span:nth-child(1) { transform: rotate(45deg)  translate(8px,  8px);  opacity: 1; }
+.burger-menu.active span:nth-child(2) { opacity: 0; }
+.burger-menu.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); opacity: 1; }
+
+@keyframes burgerAppear {
+    0%   { opacity: 0; transform: translateX(-50px) rotate(-180deg) scale(0.5); background-color: transparent; }
+    50%  { opacity: 0.5; transform: translateX(10px) rotate(90deg) scale(1.2);  background-color: var(--menu-hover); }
+    100% { opacity: 1; transform: translateX(0) rotate(0deg) scale(1);          background-color: var(--menu-text); }
+}
+
+/* ===== Meniu principal ===== */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0;
+}
+
+.nav-menu > li { position: relative; }
+
+/* Animații succesive pe itemuri nav */
+.nav-menu > li:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu > li:nth-child(2) { animation-delay: 0.2s; }
+.nav-menu > li:nth-child(3) { animation-delay: 0.3s; }
+.nav-menu > li:nth-child(4) { animation-delay: 0.4s; }
+.nav-menu > li:nth-child(5) { animation-delay: 0.5s; }
+.nav-menu > li:nth-child(6) { animation-delay: 0.6s; }
+
+.nav-menu > li > a {
+    display: block;
+    padding: 1.2rem 1.5rem;
+    color: var(--menu-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-menu > li > a i        { margin-right: 0.5rem; transition: color 0.3s ease; }
+.nav-menu > li > a:hover    { color: var(--menu-hover); }
+.nav-menu > li > a:hover i  { color: var(--menu-active); }
+
+/* Linkul Acasă: text ascuns, icon vizibil */
+.nav-menu > li:first-child > a .home-text {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    display: inline-block;
+    transition: opacity 0.3s ease, max-width 0.3s ease;
+}
+.nav-menu > li:first-child > a:hover .home-text {
+    opacity: 1;
+    max-width: 100px;
+}
+
+/* ===== Submeniu dropdown ===== */
+.nav-menu > li > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--submenu-bg);
+    min-width: 220px;
+    border: 1px solid var(--menu-border);
+    border-top: 3px solid var(--menu-hover);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(0);
+    transform-origin: top left;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.nav-menu > li > ul li a {
+    display: block;
+    padding: 0.9rem 1.5rem;
+    color: var(--menu-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--menu-border);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-menu > li > ul li:last-child a { border-bottom: none; }
+.nav-menu > li > ul li a:hover {
+    color: var(--menu-hover);
+    background-color: var(--submenu-hover-bg);
+}
+
+.nav-menu > li:hover > ul {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0s;
+}
+
+/* ===== Accesibilitate ===== */
+.nav-menu a:focus,
+.burger-menu:focus {
+    outline: 2px solid var(--menu-hover);
+    outline-offset: 2px;
+}
+
+.nav-menu a.active {
+    color: var(--menu-active);
+    border-bottom: 3px solid var(--menu-active);
+}
+
+/* ===== Animație slide-in header ===== */
+@keyframes slideInFromTop {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* ===== Responsive tablet (max 1024px) ===== */
+@media (max-width: 1024px) {
+    :root { --menu-height: 60px; }
+    .nav-menu > li > a                      { font-size: 0.9rem; padding: 1rem 1.2rem; }
+    .nav-menu > li > a.home-link .home-text { display: none !important; }
+    .nav-menu > li > a.home-link i          { margin-right: 0; }
+}
+
+/* ===== Responsive mobil (max 768px) ===== */
+@media (max-width: 768px) {
+    .burger-menu { display: flex; }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--menu-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--menu-height));
+        background-color: var(--menu-bg);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 1rem 0;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-menu.active { transform: translateX(0); }
+
+    .nav-menu > li             { border-bottom: 1px solid var(--menu-border); }
+    .nav-menu > li > a         { padding: 1.2rem 2rem; font-size: 1.1rem; }
+
+    .nav-menu > li > a::after {
+        content: '\f078';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        float: right;
+        transition: transform 0.3s ease;
+    }
+    .nav-menu > li.submenu-open > a::after { transform: rotate(180deg); }
+
+    .nav-menu > li > ul {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        border: none;
+        border-left: 3px solid var(--menu-hover);
+        margin-left: 2rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+
+    .nav-menu > li > ul li a         { padding: 1rem 1.5rem; font-size: 1rem; }
+    .nav-menu > li.submenu-open > ul { max-height: 500px; }
+}

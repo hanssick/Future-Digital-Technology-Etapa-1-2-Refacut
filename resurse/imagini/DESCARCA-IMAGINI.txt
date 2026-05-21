@@ -1,0 +1,68 @@
+==============================================================
+LINKURI IMAGINI GRATUITE — Future Digital Technology
+Descarcă și înlocuiește fișierele din resurse/imagini/
+==============================================================
+
+INSTRUCȚIUNI:
+1. Deschide linkul în browser
+2. Click dreapta pe imagine → "Salvează imaginea ca..."
+3. Salvează cu EXACT numele de fișier indicat mai jos
+4. Pune fișierul în folderul: resurse/imagini/
+
+--------------------------------------------------------------
+
+[hero-desktop.jpg] — Imagine principală hero (antenă satelit / tehnologie)
+https://pixabay.com/photos/satellite-dish-antenna-technology-1772614/
+https://pixabay.com/photos/satellite-dish-sky-antenna-1031077/
+SAU direct download:
+https://cdn.pixabay.com/photo/2016/11/19/13/43/satellite-dish-1839161_1280.jpg
+
+--------------------------------------------------------------
+
+[infrastructura-desktop.jpg] — Sală servere / datacenter
+https://pixabay.com/photos/server-rack-hardware-data-center-5976877/
+SAU direct download:
+https://cdn.pixabay.com/photo/2021/01/07/10/17/server-rack-5896129_1280.jpg
+
+--------------------------------------------------------------
+
+[electronica.jpg] — Electronică / circuit board / smart home
+https://pixabay.com/photos/circuit-board-electronics-1574408/
+SAU direct download:
+https://cdn.pixabay.com/photo/2016/10/20/18/35/circuit-board-1758053_1280.jpg
+
+--------------------------------------------------------------
+
+[showroom.jpg] — Magazin electronice / showroom
+https://pixabay.com/photos/electronics-store-television-165755/
+SAU direct download:
+https://cdn.pixabay.com/photo/2013/11/01/09/53/electronics-store-204187_1280.jpg
+
+--------------------------------------------------------------
+
+[catalog-produse.jpg] — Echipamente IT / receptoare satelit
+https://pixabay.com/photos/remote-control-satellite-receiver-1584450/
+SAU direct download:
+https://cdn.pixabay.com/photo/2016/09/06/14/42/remote-control-1649579_1280.jpg
+
+--------------------------------------------------------------
+
+SITE-URI RECOMANDATE DE PROFESOARĂ:
+• https://pixabay.com/ — GRATUIT, fără înregistrare obligatorie
+• https://www.videvo.net/ — GRATUIT pentru videoclipuri (marcate "free")
+
+ALTE SURSE GRATUITE:
+• https://unsplash.com/ — calitate foarte bună, gratuit
+• https://www.pexels.com/ — gratuit, fără atribuire necesară
+
+TERMENI DE CĂUTARE RECOMANDATE PE PIXABAY:
+• "satellite dish" → hero-desktop.jpg
+• "server room datacenter" → infrastructura-desktop.jpg
+• "circuit board electronics" → electronica.jpg
+• "electronics store" → showroom.jpg
+• "satellite receiver remote" → catalog-produse.jpg
+
+NOTĂ: Imaginile de la linkurile directe (cdn.pixabay.com) pot fi
+descărcate direct fără înregistrare. Sunt licențiate Pixabay License
+(free for commercial use, no attribution required).
+==============================================================
